@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Server
 namespace server_remoto
 {
     public class PersonaServicio : MarshalByRefObject, Ipersona
@@ -37,7 +38,6 @@ namespace server_remoto
                         {
                             cmd.ExecuteNonQuery();
                             Console.WriteLine($"Modificando {p.nombre} {p.edad} {p.telefono}");
-                            // Actualizar la lista en memoria
                             personaExistente.nombre = p.nombre;
                             personaExistente.edad = p.edad;
                             return true;
@@ -66,7 +66,6 @@ namespace server_remoto
                         {
                             cmd.ExecuteNonQuery();
                             Console.WriteLine($"Agregando {p.nombre} {p.edad} {p.telefono}");
-                            // Agregar a la lista en memoria
                             Program.personas.Add(p);
                             return true;
                         }
